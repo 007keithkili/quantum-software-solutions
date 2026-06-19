@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Our Work – Quantum Solutions Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --orange: #d4703a;
+      --orange-dark: #b85c28;
+      --orange-light: #e8945a;
+      --bg-light: #f9f5f1;
+      --bg-white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-mid: #444444;
+      --text-light: #777777;
+      --border: #e5e0da;
+      --nav-bg: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      overflow-x: hidden;
+      width: 100%;
+    }
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 62px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 38px; height: 38px; background: var(--orange);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: #fff; font-weight: 800;
+    }
+    .nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--text-dark); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-mid); font-size: 13.5px; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    .nav-toggle { display: none; background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--text-dark); padding: 8px; border-radius: 8px; transition: background 0.2s; }
+    .nav-toggle:hover { background: rgba(0,0,0,0.05); }
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links {
+        position: fixed; top: 62px; left: -100%; width: 280px; height: calc(100vh - 62px);
+        background: var(--bg-white); flex-direction: column; gap: 0; padding: 20px 0;
+        box-shadow: 2px 0 12px rgba(0,0,0,0.1); transition: left 0.3s ease; z-index: 200;
+        border-right: 1px solid var(--border); display: flex;
+      }
+      .nav-links.active { left: 0; }
+      .nav-links li { margin: 0; padding: 0; width: 100%; }
+      .nav-links a { display: block; padding: 14px 24px; font-size: 15px; border-bottom: 1px solid var(--border); width: 100%; }
+      .nav-toggle { display: flex; align-items: center; justify-content: center; }
+    }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+      min-height: 320px; display: flex; align-items: center;
+      padding: 60px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><circle cx="600" cy="100" r="200" fill="%23d4703a" opacity="0.08"/><circle cx="100" cy="400" r="150" fill="%23d4703a" opacity="0.05"/><circle cx="700" cy="380" r="120" fill="%23ffffff" opacity="0.03"/></svg>') no-repeat center/cover;
+    }
+    .hero-content { max-width: 680px; position: relative; z-index: 2; }
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 38px; font-weight: 800; color: #fff;
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .hero-content h1 span { color: var(--orange-light); }
+    .hero-content p { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.7; margin-bottom: 30px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--orange); color: #fff;
+      padding: 13px 28px; border-radius: 30px;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block; border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+      padding: 13px 28px; border-radius: 30px;
+      font-weight: 700; font-size: 14px; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .section-title { text-align: center; margin-bottom: 50px; }
+    .section-title h2 { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; margin-bottom: 10px; }
+    .section-title p { color: var(--text-light); font-size: 15px; }
+    .title-bar { width: 50px; height: 3px; background: var(--orange); margin: 10px auto 0; border-radius: 2px; }
+
+    /* GALLERY GRID */
+    .gallery-section { background: var(--bg-light); padding: 70px 60px; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+      margin-top: 10px;
+    }
+    .gallery-item {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .gallery-item-img {
+      height: 220px; overflow: hidden; background: #ddd;
+      position: relative;
+    }
+    .gallery-item-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover .gallery-item-img img { transform: scale(1.03); }
+    .gallery-item-body { padding: 20px 22px; }
+    .gallery-item-body h3 {
+      font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .gallery-item-body .client-tag {
+      display: inline-block; background: var(--bg-light); border-radius: 20px;
+      padding: 2px 14px; font-size: 11px; font-weight: 600; color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+    .gallery-item-body p { color: var(--text-mid); font-size: 13.5px; line-height: 1.6; margin-bottom: 12px; }
+    .gallery-item-body .project-link {
+      color: var(--orange); font-weight: 600; font-size: 13px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .gallery-item-body .project-link:hover { text-decoration: underline; }
+
+    /* STATS BANNER */
+    .stats-banner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: #1a1a2e; color: #fff; padding: 40px 60px;
+      gap: 20px; text-align: center;
+    }
+    .stats-banner .stat h3 { font-size: 28px; font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--orange-light); }
+    .stats-banner .stat p { font-size: 13px; opacity: 0.7; margin-top: 4px; }
+
+    /* CTA */
+    .cta-band {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      padding: 70px 60px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 80% 50%, rgba(212,112,58,0.2) 0%, transparent 60%);
+    }
+    .cta-band h2 { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; color: #fff; margin-bottom: 14px; position: relative; }
+    .cta-band p { color: rgba(255,255,255,0.72); font-size: 15px; margin-bottom: 30px; position: relative; }
+    .cta-band .btn-primary { position: relative; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e; color: rgba(255,255,255,0.7);
+      padding: 50px 60px 30px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand h3 { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: 13px; line-height: 1.8; margin-bottom: 16px; }
+    .footer-col h4 { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 14px; letter-spacing: 1px; text-transform: uppercase; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col ul a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--orange-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; }
+    .footer-bottom span { color: rgba(255,255,255,0.5); }
+    .whatsapp-float {
+      position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 56px; height: 56px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 28px; color: white; box-shadow: 0 8px 20px rgba(0,0,0,0.2); z-index: 99; text-decoration: none;
+    }
+
+    @media (max-width: 992px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .stats-banner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 40px 24px; }
+      .hero-content h1 { font-size: 28px; }
+      .gallery-section { padding: 50px 24px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .stats-banner { grid-template-columns: 1fr 1fr; padding: 30px 20px; }
+      .cta-band { padding: 50px 24px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp float -->
+  <a href="https://wa.me/254721473081" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fas fa-atom"></i></div>
+      <span class="nav-logo-text">Quantum<span style="color:var(--orange);">Solutions</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggleBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Our <span>Work</span></h1>
+      <p>A curated showcase of digital projects — from farm-to-table platforms and travel experiences to agency brands and technical solutions. Each project reflects our commitment to quality and innovation.</p>
+      <div class="hero-btns">
+        <a href="#gallery" class="btn-primary"><i class="fas fa-images"></i> View Gallery</a>
+        <a href="https://wa.me/254721473081" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="stat"><h3>12+</h3><p>Completed Projects</p></div>
+    <div class="stat"><h3>10</h3><p>Happy Clients</p></div>
+    <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
+    <div class="stat"><h3>4.9★</h3><p>Average Rating</p></div>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-title">
+      <h2>featured projects</h2>
+      <div class="title-bar"></div>
+      <p>real websites and platforms built with precision and care</p>
+    </div>
+    <div class="gallery-grid">
+      <!-- Sancher Dairies -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1558452654-1bf6b4a8b0e9?auto=format&fit=crop&w=800&h=500&q=80" alt="Sancher Dairies" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Sancher Dairies</h3>
+          <span class="client-tag">Agriculture & E‑commerce</span>
+          <p>Premium dairy and honey brand website with a story-driven design, product showcase, and farm-to-table narrative.</p>
+          <a href="https://sancher-dairies.vercel.app/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Remote Travels -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&h=500&q=80" alt="Remote Travels" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Remote Travels</h3>
+          <span class="client-tag">Travel & Tourism</span>
+          <p>Luxury tour booking platform featuring premium destinations, safari packages, and a seamless booking experience.</p>
+          <a href="https://www.remotetravels.co.ke/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Tawi Agency -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&h=500&q=80" alt="Tawi Agency" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Tawi Agency</h3>
+          <span class="client-tag">Marketing & PR</span>
+          <p>Brand growth agency showcase with portfolio, case studies, and interactive analytics dashboard for marketing campaigns.</p>
+          <a href="https://tawiagency.co.ke/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Favourcomp ICT -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1551434678-e076c2236a96?auto=format&fit=crop&w=800&h=500&q=80" alt="Favourcomp ICT" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Favourcomp ICT Experts</h3>
+          <span class="client-tag">IT Services & Solutions</span>
+          <p>Enterprise IT infrastructure company website showcasing hardware, software, security, and solar solutions with case studies.</p>
+          <a href="https://www.favourcomp-ict-experts.co.ke/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- EJ Energisec -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=800&h=500&q=80" alt="EJ Energisec" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>EJ Energisec</h3>
+          <span class="client-tag">Electrical & Security</span>
+          <p>Power and protection solutions provider — electrical, solar, CCTV, and alarm systems for residential and commercial clients.</p>
+          <a href="https://ej-energisec.vercel.app/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Vikram Plumbing -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&h=500&q=80" alt="Vikram Plumbing" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Vikram Plumbing</h3>
+          <span class="client-tag">Plumbing Services</span>
+          <p>Premium plumbing service platform with 24/7 emergency support, service metrics, and a clean, trust-focused design.</p>
+          <a href="https://vikram-plumbing-service.vercel.app/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Kerio View Travel Info -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&h=500&q=80" alt="Kerio View" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Kerio View Travel Info</h3>
+          <span class="client-tag">Travel Information</span>
+          <p>Informational travel resource for visitors to Kerio View Lodge, featuring visa guidance, Swahili phrases, and itinerary tips.</p>
+          <a href="https://kerioview.com/travel-info/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Bektas Blocks -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&w=800&h=500&q=80" alt="Bektas Blocks" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Bektas Blocks</h3>
+          <span class="client-tag">E‑commerce</span>
+          <p>E-commerce platform for construction materials — built for Bektas Blocks to streamline ordering and inventory.</p>
+          <a href="#" class="project-link" onclick="alert('Project link coming soon!')">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Cycon Investment -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&h=500&q=80" alt="Cycon Investment" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Cycon Investment</h3>
+          <span class="client-tag">Finance & Analytics</span>
+          <p>Investment analytics dashboard with real-time data visualization and portfolio tracking for Cycon Investment.</p>
+          <a href="#" class="project-link" onclick="alert('Project link coming soon!')">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- EcoPlan CCTV -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=800&h=500&q=80" alt="EcoPlan" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>EcoPlan CCTV Installation</h3>
+          <span class="client-tag">Security & Surveillance</span>
+          <p>Comprehensive CCTV and security system deployment for EcoPlan, featuring remote monitoring and AI motion detection.</p>
+          <a href="#" class="project-link" onclick="alert('Project details available on request.')">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- TRIBE Hotel -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&h=500&q=80" alt="Tribe Hotel" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Tribe Hotel</h3>
+          <span class="client-tag">Luxury Hospitality</span>
+          <p>Five-star luxury hotel in Nairobi's Gigiri — a sophisticated digital presence reflecting the warmth, personality, and enchantment of Kenya.</p>
+          <a href="https://www.tribe-hotel.com/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Heritage Hotels -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&h=500&q=80" alt="Heritage Hotels" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Heritage Hotels</h3>
+          <span class="client-tag">Luxury Hospitality</span>
+          <p>East Africa's premier hotel collection — a premium digital gateway showcasing world-class accommodations across the region.</p>
+          <a href="https://www.heritage-eastafrica.com/welcome-heritage-hotels" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Necker Island -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&h=500&q=80" alt="Necker Island" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Necker Island</h3>
+          <span class="client-tag">Luxury Private Island</span>
+          <p>Sir Richard Branson's iconic private island in the Caribbean — an exclusive, immersive digital experience for the world's most discerning travelers.</p>
+          <a href="https://www.virginlimitededition.com/necker-island/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Mufasa Tours -->
+      <div class="gallery-item">
+        <div class="gallery-item-img">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&h=500&q=80" alt="Mufasa Tours" />
+        </div>
+        <div class="gallery-item-body">
+          <h3>Mufasa Tours & Travel</h3>
+          <span class="client-tag">Travel & Safari</span>
+          <p>Leading East African tour operator offering tailor-made safaris, beach holidays, and unforgettable wildlife experiences since 1999.</p>
+          <a href="https://mufasatoursandtravels.com/" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <h2>ready to build something remarkable?</h2>
+    <p>Let's create your next digital success story — just like these.</p>
+    <a href="https://wa.me/254721473081" class="btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Start Your Project</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>Quantum<span style="color:var(--orange);">Solutions</span></h3><p>Digital agency crafting websites, systems, branding, and e‑commerce with quantum precision.</p><div style="display:flex; gap:12px; margin-top:16px;"><a href="#" style="color:white;"><i class="fab fa-instagram"></i></a><a href="#" style="color:white;"><i class="fab fa-linkedin"></i></a><a href="#" style="color:white;"><i class="fab fa-x-twitter"></i></a></div></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="service.html">Services</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+      <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://wa.me/254721473081" target="_blank">WhatsApp</a></li><li><a href="mailto:keithkili007@gmail.com">Email</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Quantum Solutions — bold IT solutions ✨</span>
+      <span>Crafted with passion in Kenya</span>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile toggle
+    const toggleBtn = document.getElementById('navToggleBtn');
+    const navMenu = document.getElementById('navLinks');
+    if(toggleBtn && navMenu) {
+      toggleBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        const icon = toggleBtn.querySelector('i');
+        if(icon) {
+          if(navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        }
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          const icon = toggleBtn.querySelector('i');
+          if(icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+    }
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if(targetId === "#" || targetId === "") return;
+        const target = document.querySelector(targetId);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
